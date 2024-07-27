@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 def users(request: HttpRequest) -> HttpResponse:
     if request.method == 'GET':
         users = User.objects.all()
-        serialized_users = [user.name for user in users]
+        serialized_users = [{'name' : user.name, 'age': user.age, 'email': user.email, 'user-id':user.id } for user in users]
         return HttpResponse(json.dumps(serialized_users))
 
     if request.method == 'POST':
