@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import users, update_or_delete_user
-
+# from .views import users, update_or_delete_user
+from .better_views import UserListCreateApiView
 urlpatterns = [
-    path('users/', users),
-    path('users/<id>', update_or_delete_user),
+    path('users/', UserListCreateApiView.as_view()),
+    # path('users/<id>', UserListCreateApiView.as_view()),
     path('admin/', admin.site.urls),
 ]
