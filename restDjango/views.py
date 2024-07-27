@@ -12,4 +12,4 @@ def users(request: HttpRequest) -> HttpResponse:
         body = json.loads(request.body)
         user = User(name=body['name'], email=body['email'], age=body['age'])
         user.save()
-        return HttpResponse(json.dumps({'id': user.id, 'name': user.name}))
+        return HttpResponse(json.dumps({'id': user.id, 'name': user.name, 'email': user.email, 'age': user.age}))
