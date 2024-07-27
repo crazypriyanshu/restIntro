@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # from .views import users, update_or_delete_user
-from .better_views import UserListCreateApiView
+from .better_views import UserListCreateApiView, UserRetrieveUpdateDestroyApiView
+
 urlpatterns = [
     path('users/', UserListCreateApiView.as_view()),
-    # path('users/<id>', UserListCreateApiView.as_view()),
+    path('users/<id>', UserRetrieveUpdateDestroyApiView.as_view()),
     path('admin/', admin.site.urls),
 ]

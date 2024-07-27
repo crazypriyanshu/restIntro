@@ -8,3 +8,9 @@ from .serializer import UserSerializer
 class UserListCreateApiView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class UserRetrieveUpdateDestroyApiView(RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'id'
